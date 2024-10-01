@@ -17,7 +17,7 @@ class Rules:
         return binary_str
 
     def pattern(self):
-        print(f'vecninos {self.vecinos}')
+        #print(f'vecninos {self.vecinos}')
         len_pattern = 2**(self.vecinos + 1)
         for i in range(len_pattern):
             pattern_t = self.decimal_to_binary(i, 3)
@@ -83,7 +83,7 @@ class Automata:
                 self.matrix_CA[it+1][central_cell] = current_pattern
                 #print(f'matrix \n{self.matrix_CA}')
 
-        print(f'IS {self.inital_state}')
+        #print(f'IS {self.inital_state}')
         return self.matrix_CA
     
     def __repr__(self):
@@ -98,11 +98,14 @@ class Graph_cellular:
     def __init__(self, data):
         self.data = data
 
-    def graph(self):
+    def graph(self, regla, initial_state):
         plt.imshow(self.data, cmap='gray', interpolation='none')
+        plt.title(f"Cellular Automata {regla}")
+        plt.savefig('CA_{0}_{1}.png'.format(initial_state, regla))
 
         # Add a color bar for reference (optional)
         plt.colorbar()
 
         # Display the plot
         plt.show()
+        

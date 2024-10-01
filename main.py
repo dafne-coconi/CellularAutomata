@@ -18,6 +18,6 @@ print(f"Second argument: {vector}")
 aC = Automata(vecinos, vector, iteraciones, regla, inital_state)
 data = aC.create_CA()
 #print(data)
-Graph_cellular(data).graph()
+Graph_cellular(data).graph(regla, inital_state)
 
 
